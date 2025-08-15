@@ -5,4 +5,6 @@ extends ParallaxBackground
 @onready var close_starts_layer: ParallaxLayer = $CloseStartsLayer
 
 func _process(delta: float) -> void:
-	pass
+	space_layer.motion_offset.y += 2 * delta
+	close_starts_layer.motion_offset.y += 20 * delta
+	far_stars_layer.motion_offset.y += 5 * delta

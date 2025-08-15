@@ -9,6 +9,7 @@
 script = ExtResource("1_5bor5")
 
 [node name="SpaceLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 240)
 
 [node name="Space" type="TextureRect" parent="SpaceLayer"]
 offset_right = 160.0
@@ -17,6 +18,7 @@ texture = ExtResource("1_in7yw")
 stretch_mode = 1
 
 [node name="FarStarsLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 240)
 
 [node name="FarStars" type="TextureRect" parent="FarStarsLayer"]
 offset_right = 160.0
@@ -25,6 +27,7 @@ texture = ExtResource("2_yrrok")
 stretch_mode = 1
 
 [node name="CloseStartsLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 240)
 
 [node name="TextureRect" type="TextureRect" parent="CloseStartsLayer"]
 offset_right = 160.0
