@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cnmf5qa3051nn"]
+[gd_scene load_steps=14 format=3 uid="uid://cnmf5qa3051nn"]
 
 [ext_resource type="Texture2D" uid="uid://c532y3srhpnya" path="res://assets/ship.png" id="1_aj8jm"]
 [ext_resource type="Script" uid="uid://c1touhip7u5qh" path="res://player_ship/ship.gd" id="1_etvdo"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cn320hovx84c4" path="res://components/position_clamp_component.gd" id="5_6u6rn"]
 [ext_resource type="Script" uid="uid://cl00k6aq4utvt" path="res://components/spawner_component.gd" id="7_6m5c2"]
 [ext_resource type="PackedScene" uid="uid://ct1lde8rghdgp" path="res://projectiles/laser.tscn" id="8_le0bn"]
+[ext_resource type="Script" uid="uid://s2roxoim5pvd" path="res://components/scale_component.gd" id="9_le0bn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkw2b"]
 atlas = ExtResource("1_aj8jm")
@@ -86,3 +87,8 @@ metadata/_custom_type_script = "uid://cl00k6aq4utvt"
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.4
 autostart = true
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("9_le0bn")
+sprite = NodePath("../AnimatedSprite2D")
+metadata/_custom_type_script = "uid://s2roxoim5pvd"
