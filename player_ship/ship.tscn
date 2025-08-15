@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnmf5qa3051nn"]
+[gd_scene load_steps=13 format=3 uid="uid://cnmf5qa3051nn"]
 
 [ext_resource type="Texture2D" uid="uid://c532y3srhpnya" path="res://assets/ship.png" id="1_aj8jm"]
+[ext_resource type="Script" uid="uid://c1touhip7u5qh" path="res://player_ship/ship.gd" id="1_etvdo"]
 [ext_resource type="Script" uid="uid://s7rvthki1jeh" path="res://components/move_component.gd" id="2_vkw2b"]
 [ext_resource type="Script" uid="uid://cm2wsecix4c24" path="res://components/move_input_component.gd" id="3_wp5hq"]
 [ext_resource type="Resource" uid="uid://b8n0yhtpxmhnt" path="res://player_ship/ship_move_stats.tres" id="4_0n25c"]
+[ext_resource type="Script" uid="uid://cn320hovx84c4" path="res://components/position_clamp_component.gd" id="5_6u6rn"]
+[ext_resource type="Script" uid="uid://cl00k6aq4utvt" path="res://components/spawner_component.gd" id="7_6m5c2"]
+[ext_resource type="PackedScene" uid="uid://ct1lde8rghdgp" path="res://projectiles/laser.tscn" id="8_le0bn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vkw2b"]
 atlas = ExtResource("1_aj8jm")
@@ -45,6 +49,7 @@ animations = [{
 }]
 
 [node name="Ship" type="Node2D"]
+script = ExtResource("1_etvdo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_01uhe")
@@ -61,3 +66,21 @@ script = ExtResource("3_wp5hq")
 move_stats = ExtResource("4_0n25c")
 move_component = NodePath("../MoveComponent")
 metadata/_custom_type_script = "uid://cm2wsecix4c24"
+
+[node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("5_6u6rn")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://cn320hovx84c4"
+
+[node name="LeftMuzzle" type="Marker2D" parent="."]
+position = Vector2(-5, -4)
+
+[node name="RightMuzzle" type="Marker2D" parent="."]
+position = Vector2(5, -4)
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("7_6m5c2")
+scene = ExtResource("8_le0bn")
+metadata/_custom_type_script = "uid://cl00k6aq4utvt"
+
+[node name="FireRateTimer" type="Timer" parent="."]
