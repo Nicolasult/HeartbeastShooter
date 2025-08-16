@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceigr70usohan"]
+[gd_scene load_steps=9 format=3 uid="uid://ceigr70usohan"]
 
 [ext_resource type="Script" uid="uid://dxvh30mo3ptt4" path="res://enemies/enemy.gd" id="1_3t1x0"]
 [ext_resource type="Script" uid="uid://s7rvthki1jeh" path="res://components/move_component.gd" id="1_7frlh"]
@@ -6,14 +6,17 @@
 [ext_resource type="Script" uid="uid://s2roxoim5pvd" path="res://components/scale_component.gd" id="3_orwns"]
 [ext_resource type="Script" uid="uid://c4qd68n6e0xtw" path="res://components/flash_component.gd" id="4_07tka"]
 [ext_resource type="Script" uid="uid://doonkm5qvgib7" path="res://components/shake_component.gd" id="5_3t1x0"]
+[ext_resource type="Script" uid="uid://cxo3wgh7dfmf4" path="res://components/hurtbox_component.gd" id="7_4w5fm"]
+[ext_resource type="Script" uid="uid://bcshnmbp773a2" path="res://components/hitbox_component.gd" id="8_uba7a"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_3t1x0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
-[node name="MoveComponent" type="Node" parent="."]
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("1_7frlh")
+actor = NodePath("..")
 metadata/_custom_type_script = "uid://s7rvthki1jeh"
 
 [node name="StatsComponent" type="Node" parent="."]
@@ -22,14 +25,25 @@ metadata/_custom_type_script = "uid://orv14whxdxaf"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="ScaleComponent" type="Node" parent="."]
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("3_orwns")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://s2roxoim5pvd"
 
-[node name="FlashComponent" type="Node" parent="."]
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_07tka")
+sprite = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://c4qd68n6e0xtw"
 
-[node name="ShakeComponent" type="Node" parent="."]
+[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
 script = ExtResource("5_3t1x0")
+node = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://doonkm5qvgib7"
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("7_4w5fm")
+metadata/_custom_type_script = "uid://cxo3wgh7dfmf4"
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("8_uba7a")
+metadata/_custom_type_script = "uid://bcshnmbp773a2"
