@@ -14,3 +14,7 @@ script = ExtResource("1_aqk2v")
 position = Vector2(80, 216)
 
 [node name="EnemyGenerator" parent="." instance=ExtResource("3_tlwt5")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
