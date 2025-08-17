@@ -70,10 +70,10 @@ tracks/0/path = NodePath("Anchor:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-4, 0)]
+"values": [Vector2(0, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_04bmb"]
@@ -85,7 +85,6 @@ _data = {
 [node name="PinkEnemyProjectile" type="Node2D"]
 
 [node name="Anchor" type="Node2D" parent="."]
-position = Vector2(-4, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor"]
 sprite_frames = SubResource("SpriteFrames_arb35")
