@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://txvjoay0f5rw"]
+[gd_scene load_steps=10 format=3 uid="uid://txvjoay0f5rw"]
 
 [ext_resource type="Script" uid="uid://cq016k14tsfi8" path="res://menus/game_over.gd" id="1_hl86a"]
 [ext_resource type="PackedScene" uid="uid://cxx3e1qdg4n7w" path="res://effects/space_background.tscn" id="1_slp2k"]
+[ext_resource type="Resource" uid="uid://cl2q1dwqxna7q" path="res://game_stats.tres" id="2_a6cs8"]
 [ext_resource type="FontFile" uid="uid://citsrqfx7a4dv" path="res://fonts/title_label_settings.tres" id="2_hl86a"]
 [ext_resource type="FontFile" uid="uid://bv1e230skau5j" path="res://fonts/default_label_settings.tres" id="3_a6cs8"]
 
@@ -28,6 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hl86a")
+game_stats = ExtResource("2_a6cs8")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("1_slp2k")]
 
@@ -58,6 +60,7 @@ text = "score:"
 label_settings = SubResource("LabelSettings_hl86a")
 
 [node name="ScoreValue" type="Label" parent="CenterContainer/VBoxContainer/ScoreHBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_a6cs8")
@@ -68,10 +71,11 @@ layout_mode = 2
 [node name="HighscoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HighscoreHBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "score:"
+text = "highscore:"
 label_settings = SubResource("LabelSettings_hl86a")
 
 [node name="HighscoreValue" type="Label" parent="CenterContainer/VBoxContainer/HighscoreHBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_a6cs8")
