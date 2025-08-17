@@ -95,6 +95,7 @@ adjust_amount = 15
 [node name="MoveDownState" type="Node" parent="States" index="0"]
 unique_name_in_owner = true
 script = ExtResource("6_67erp")
+duration = 2.0
 metadata/_custom_type_script = "uid://bwy8as80i7hh"
 
 [node name="MoveComponent" type="Node" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
