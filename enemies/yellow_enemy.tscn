@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgbmvcc2q1tsx"]
+[gd_scene load_steps=10 format=3 uid="uid://cgbmvcc2q1tsx"]
 
 [ext_resource type="PackedScene" uid="uid://ceigr70usohan" path="res://enemies/enemy.tscn" id="1_rilk2"]
+[ext_resource type="Script" uid="uid://ctome40o0nati" path="res://enemies/yellow_enemy.gd" id="2_kcw3k"]
 [ext_resource type="Texture2D" uid="uid://b5pnmv1bbtdp2" path="res://assets/yellow_enemy.png" id="2_sy5vk"]
+[ext_resource type="Script" uid="uid://bf15l0ybfib81" path="res://components/border_bounce_component.gd" id="4_fg4df"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kcw3k"]
 atlas = ExtResource("2_sy5vk")
@@ -31,6 +33,7 @@ size = Vector2(16, 9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcw3k"]
 
 [node name="YellowEnemy" instance=ExtResource("1_rilk2")]
+script = ExtResource("2_kcw3k")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_m0yjl")
@@ -65,3 +68,9 @@ debug_color = Color(0.799857, 0.284765, 0.777223, 0.42)
 
 [node name="ScoreComponent" parent="." index="12"]
 adjust_amount = 10
+
+[node name="BorderBounceComponent" type="Node" parent="." index="13" node_paths=PackedStringArray("actor", "move_component")]
+script = ExtResource("4_fg4df")
+actor = NodePath("..")
+move_component = NodePath("../MoveComponent")
+metadata/_custom_type_script = "uid://bf15l0ybfib81"
