@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgbmvcc2q1tsx"]
+
+[ext_resource type="PackedScene" uid="uid://ceigr70usohan" path="res://enemies/enemy.tscn" id="1_rilk2"]
+[ext_resource type="Texture2D" uid="uid://b5pnmv1bbtdp2" path="res://assets/yellow_enemy.png" id="2_sy5vk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcw3k"]
+atlas = ExtResource("2_sy5vk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg4df"]
+atlas = ExtResource("2_sy5vk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0yjl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcw3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg4df")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sy5vk"]
+size = Vector2(16, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcw3k"]
+
+[node name="YellowEnemy" instance=ExtResource("1_rilk2")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_m0yjl")
+autoplay = "default"
+frame = 1
+
+[node name="MoveComponent" parent="." index="1"]
+velocity = Vector2(0, 10)
+
+[node name="StatsComponent" parent="." index="2"]
+health = 6
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-8.9407e-08, -0.5)
+scale = Vector2(0.9, 0.45)
+
+[node name="HurtboxComponent" parent="." index="7"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_sy5vk")
+
+[node name="HitboxComponent" parent="." index="8"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+visible = false
+shape = SubResource("RectangleShape2D_kcw3k")
+debug_color = Color(0.799857, 0.284765, 0.777223, 0.42)
+
+[node name="ScoreComponent" parent="." index="12"]
+adjust_amount = 10
