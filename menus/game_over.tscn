@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://txvjoay0f5rw"]
+[gd_scene load_steps=9 format=3 uid="uid://txvjoay0f5rw"]
 
 [ext_resource type="Script" uid="uid://cq016k14tsfi8" path="res://menus/game_over.gd" id="1_hl86a"]
 [ext_resource type="PackedScene" uid="uid://cxx3e1qdg4n7w" path="res://effects/space_background.tscn" id="1_slp2k"]
@@ -7,6 +7,14 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_kwtkc"]
 font = ExtResource("2_hl86a")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hl86a"]
+font = ExtResource("3_a6cs8")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6cs8"]
+font = ExtResource("3_a6cs8")
+font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_mgyup"]
 font = ExtResource("3_a6cs8")
@@ -40,9 +48,41 @@ text = "Game Over"
 label_settings = SubResource("LabelSettings_kwtkc")
 horizontal_alignment = 1
 
-[node name="MenuLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="ScoreHBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/ScoreHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "score:"
+label_settings = SubResource("LabelSettings_hl86a")
+
+[node name="ScoreValue" type="Label" parent="CenterContainer/VBoxContainer/ScoreHBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_a6cs8")
+
+[node name="HighscoreHBoxContainer2" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HighscoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HighscoreHBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "score:"
+label_settings = SubResource("LabelSettings_hl86a")
+
+[node name="HighscoreValue" type="Label" parent="CenterContainer/VBoxContainer/HighscoreHBoxContainer2"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_a6cs8")
+
+[node name="MenuLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "Press 'Space' to return
 to the Start Menu"
 label_settings = SubResource("LabelSettings_mgyup")
 horizontal_alignment = 1
+vertical_alignment = 2
