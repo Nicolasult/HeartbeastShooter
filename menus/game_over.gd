@@ -11,8 +11,10 @@ const TEST_SAVE_PATH = "res://save.cfg"
 var save_path = TEST_SAVE_PATH
 
 func _ready() -> void:
+	load_highscore()
 	if game_stats.score > game_stats.highscore:
 		game_stats.highscore = game_stats.score
+		save_highscore()
 	score_value.text = str(game_stats.score)
 	highscore_value.text = str(game_stats.highscore)
 
@@ -28,4 +30,6 @@ func load_highscore() -> void:
 	game_stats.highscore = config.get_value("game", "highscore")
 	
 func save_highscore() -> void:
-	pass
+	var config = ConfigFile.new()
+	config.set_value("game", "highscore", game_stats.highscore)
+	config.save(save_path)
