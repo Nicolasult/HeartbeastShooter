@@ -81,6 +81,6 @@ metadata/_custom_type_script = "uid://cvevm21kd57qv"
 
 [node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_8cidi")
-volume_db = -7.428
+bus = &"Sounds"
 script = ExtResource("16_grymm")
 metadata/_custom_type_script = "uid://ccx0f8peey10h"
